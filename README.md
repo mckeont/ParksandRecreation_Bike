@@ -2,4 +2,4 @@
 Philadelphia
 
 
-https://mckeont.github.io/ParksandRecreation_Bike/.lab2/index.html
+https://mckeont.github.io/ParksandRecreation_Bike/lab2/index.html
