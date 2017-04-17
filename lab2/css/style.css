@@ -6,7 +6,7 @@ body {
 
 .header {
   position: absolute;
-  height: 50px;
+  height: 0px;
   width: 100%;
   background-color: #444;
   color: #fff;
@@ -19,36 +19,109 @@ body {
   left: 440px;
   right: 0;
   bottom: 0;
-  top: 50px;
+  top: 0px;
 }
 
 .sidebar {
   position: absolute;
   left: 0px;
   width: 440px;
-  top: 50px;
+  top: 0px;
   bottom: 0;
   padding: 20px;
   overflow: hidden;
   overflow-y: auto;
+  border: solid;
+  background-color: #9da3b6;
 }
 
-#toggle-sidebar {
-  position: absolute;
-  right: 10px;
-  top: 60px;
-  z-index: 200;
-  padding: 6px 10px;
-  background-color: #057071;
-  border: 0;
-  color: #fff;
-  display: block;
-}
+.custom-popup .leaflet-popup-content-wrapper {
+  background:#2c3e50;
+  color:#fff;
+  font-size:16px;
+  line-height:24px;
+  }
+.custom-popup .leaflet-popup-content-wrapper a {
+  color:rgba(255,255,255,0.5);
+  }
+.custom-popup .leaflet-popup-tip-container {
+  width:20px;
+  height:15px;
+  }
 
 @media screen and (min-width: 480px) and (max-width: 800px) {
+.sidebar {
+  width: 0%;
+  top:100px;
+  padding: 0%;
+}
+.header{
+  height: 100px;
+  width:100%;
+}
+.map{
+  left: 0%;
+  top:100px;
+}
 
+.left{
+  width: 50px;
+  height: 50px;
+  border: solid;
+  border-width: thin;
+  position: absolute;
+}
+.right{
+  width: 50px;
+  height: 50px;
+  border: solid;
+  border-width: thin;
+  position: absolute;
+}
+.bottom{
+  width: 100%;
+  height: 50px;
+  border: solid;
+  border-width: thin;
+  position: absolute;
+  background-color: powderblue;
+}
 }
 
 @media screen and (max-width: 479px) {
-
+  .sidebar {
+    width: 0%;
+    top:100px;
+    padding: 0%;
+  }
+  .header{
+    height: 120px;
+    width:100%;
+  }
+  .map{
+    left: 0%;
+    top:100px
+  }
+  .left{
+    width: 50px;
+    height: 50px;
+    border: solid;
+    border-width: thin;
+    position: absolute;
+  }
+  .right{
+    width: 50px;
+    height: 50px;
+    border: solid;
+    border-width: thin;
+    position: absolute;
+  }
+  .bottom{
+    width: 100%;
+    height: 50px;
+    border: solid;
+    border-width: thin;
+    position: absolute;
+    background-color: powderblue;
+  }
 }

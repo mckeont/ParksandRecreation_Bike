@@ -1,41 +1,37 @@
 <!DOCTYPE html>
 <html>
 <style>
+
 .background{
   background-color: "green";
 }
-.sidebar {
-  border: solid;
-  background-color: #9da3b6;
-}
+
 .smaller-image {
   width: 200px;
   height: 150px;
   border-radius: 5%;
   border-width:2px;
 }
+
+.smallest-image{
+  width: 80px;
+  height: 50px;
+  border-radius: 5%;
+  border-width:2px;
+}
+.bikepath-image{
+  width: 150px;
+  height: 50px;
+  border-radius: 5%;
+  border-width:2px;
+}
+.backImage{
+  background-image: url(ParksandRecreation_Bike/lab2/images/BikePath.png);
+}
 .font-size {
   font-size: 8px;
 }
 
-.custom-popup .leaflet-popup-content-wrapper {
-  background:#2c3e50;
-  color:#fff;
-  font-size:16px;
-  line-height:24px;
-  }
-.custom-popup .leaflet-popup-content-wrapper a {
-  color:rgba(255,255,255,0.5);
-  }
-.custom-popup .leaflet-popup-tip-container {
-  width:20px;
-  height:15px;
-  }
-/*.custom-popup .leaflet-popup-tip {
-  border-left:15px solid transparent;
-  border-right:15px solid transparent;
-  border-top:15px solid #2c3e50;
-  }*/
 </style>
 
   <head>
@@ -45,21 +41,48 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/leaflet.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
   </head>
   <body>
-    <!-- Map -->
-    <div class="header sidebar"></div>
-    <!-- Button -->
-    <button id="toggle-sidebar">
-      <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-    </button>
+
+    <!-- HEADER -->
+
+    <div class="header">
+      <div class= "row">
+      <div class="col-md-8 bottom">
+        <center>
+         <span class = "backImage">
+          <span><img class= "bikepath-image" src = "images/BikePath.png"></img></span>
+          <span><img class= "smallest-image" src = "images/anteater_and_bicycle.png"></img></span>
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">More Info</button>
+         </span>
+        </center>
+    </div>
+      </div>
+    <div class= "row">
+    <div class="col-xs-6 col-md-4 left"><center><b>Parks and Recreation Bike Route App</b></center></div>
+
+     <div class="col-xs-6 col-md-4 right">
+
+       <!-- <input id="dest" type="text" size="20" placeholder= "123 Handspider street"><br>
+       <button id="calculate">Calculate Route</button> -->
+
+     </div>
+     </div>
+
+    </div>
+
+
+    <!-- MAP -->
+
     <div class='custom-popup map' id="map" ></div>
     <!-- Sidebar -->
     <div class="sidebar">
       <center><h1>Parks and Recreation Biking Application</h1></center>
       <center><h4>Looking for something fun to do in Philly? Find your nearest Parks and Recreation </h4></center>
+      <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">More Info</button>
       <h6><p>	Standard costing for travel by bicycle, with a slight preference for using cycleways or roads with bicycle lanes. Bicycle routes follow regular roads when needed, but avoid roads without bicycle access.</p></h6>
       <center><h2 class="h3">From <span style="color:blue">here</span> to <span style="color:red">there</span></h2></center>
       <label for="dest">Enter an address</label><br>
@@ -68,7 +91,35 @@
       <center><img class= "smaller-image" src = "images/anteater_and_bicycle.png"></img></center>
       <center><h4 class="font-size"><a href="http://giganticbicyclefestival.org/">Anteater on bike from gigantic bicycle festival</a><center>
     </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal">&times;</button>
+             <h4 class="modal-title">Welcome to the Philadelphia Parks and Recreation Bicycle App!</h4>
+           </div>
+           <div class="modal-body">
+             <p>This app works best within the city of Philadelphia</p>
+           </div>
+           <div class="modal-body">
+             <p>Use this app to find your nearest Parks and Recreation site.</p>
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+           </div>
+         </div>
+
+       </div>
+     </div>
+
+
     <!-- Javascript Imports -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v2.0.2/turf.min.js'></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.33.1/mapbox-gl.js'></script>
+    <script src= 'https://npmcdn.com/@turf/turf/turf.min.js'></script>
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
@@ -78,6 +129,6 @@
     <script src="js/decode.js"></script>
     <script src="js/setup.js"></script>
     <script src="js/main.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
   </body>
 </html>
