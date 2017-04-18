@@ -44,12 +44,13 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
   </head>
   <body>
 
     <!-- HEADER -->
 
-    <div class="header">
+    <div class="header" style= "font-family: 'Gloria Hallelujah', cursive">
       <div class= "row">
       <div class="col-md-8 bottom">
         <center>
@@ -80,14 +81,15 @@
     <div class='custom-popup map' id="map" ></div>
     <!-- Sidebar -->
     <div class="sidebar">
-      <center><h1>Parks and Recreation Biking Application</h1></center>
-      <center><h4>Looking for something fun to do in Philly? Find your nearest Parks and Recreation </h4></center>
+      <center><h1  style = "font-family: 'Gloria Hallelujah', cursive">Parks and Recreation Bike Route App</h1></center>
+      <br>
+      <center><h5>Looking for something fun to do in Philly? Find your nearest Parks and Recreation </h5></center>
       <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">More Info</button>
-      <h6><p>	Standard costing for travel by bicycle, with a slight preference for using cycleways or roads with bicycle lanes. Bicycle routes follow regular roads when needed, but avoid roads without bicycle access.</p></h6>
-      <center><h2 class="h3">From <span style="color:blue">here</span> to <span style="color:red">there</span></h2></center>
+      <h6><p>	Bike route has a slight preference for using cycleways or roads with bicycle lanes. Bicycle routes follow regular roads when needed, but avoid roads without bicycle access.</p></h6>
+      <!-- <center><h2 class="h3">From <span style="color:blue">here</span> to <span style="color:red">there</span></h2></center> -->
       <label for="dest">Enter an address</label><br>
       <input id="dest" type="text" size="40" placeholder= "123 Handspider street YourCity State zip"><br>
-      <button id="calculate">Calculate Route</button>
+      <button id="calculate">Go!</button>
       <center><img class= "smaller-image" src = "images/anteater_and_bicycle.png"></img></center>
       <center><h4 class="font-size"><a href="http://giganticbicyclefestival.org/">Anteater on bike from gigantic bicycle festival</a><center>
     </div>
