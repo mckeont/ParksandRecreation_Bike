@@ -1,7 +1,7 @@
 var keyUp = false;
 //Fly to your location
 var goToOrigin = _.once(function(lat, lng) {
-  map.flyTo([lat, lng], 15);
+  map.flyTo([lat, lng], 14);
 });
 
 // Set colors for each polygon
@@ -17,7 +17,7 @@ switch(feature.properties.use_) {
   case 'Park- Mini': return {color: "green", fillOpacity: 0.5, weight: 1};
   case 'Golf': return {color: "#00CED1", fillOpacity: 0.5, weight: 1};
   case 'Historic House': return {color: "yellow", fillOpacity: 0.5, weight: 1};
-  default: return {color:"purple", fillOpacity: 0.8};
+  default: return {color:"#E9967A", fillOpacity: 0.8};
 }
 };
 //Importing geoJson

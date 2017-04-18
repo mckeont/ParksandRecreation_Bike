@@ -49,7 +49,25 @@ body {
   height:15px;
   }
 
+  #media {
+    display: visible;
+  }
+  #mediaSmall{
+    display: none;
+  }
+
 @media screen and (min-width: 480px) and (max-width: 800px) {
+
+  .custom-popup .leaflet-popup-content-wrapper {
+    background:#9da3b6;
+    color:#fff;
+    font-size:12px;
+    line-height:14px;
+    }
+  .custom-popup .leaflet-popup-tip-container {
+    width:10px;
+    height:7px;
+    }
 .sidebar {
   width: 0%;
   top:100px;
@@ -62,6 +80,13 @@ body {
 .map{
   left: 0%;
   top:100px;
+}
+
+#media {
+  display: none;
+}
+#mediaSmall{
+  display: inline;
 }
 
 .left{
@@ -89,6 +114,18 @@ body {
 }
 
 @media screen and (max-width: 479px) {
+
+  .custom-popup .leaflet-popup-content-wrapper {
+    background:#9da3b6;
+    color:#fff;
+    font-size:12px;
+    line-height:14px;
+    }
+
+  .custom-popup .leaflet-popup-tip-container {
+    width:10px;
+    height:7px;
+    }
   .sidebar {
     width: 0%;
     top:100px;
@@ -108,6 +145,13 @@ body {
     border: solid;
     border-width: thin;
     position: absolute;
+  }
+  #media {
+    display: none;
+  }
+
+  #mediaSmall{
+    display: inline;
   }
   .right{
     width: 50px;
