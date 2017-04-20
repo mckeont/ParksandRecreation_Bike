@@ -1,3 +1,5 @@
+
+
 var keyUp = false;
 //Fly to your location
 var goToOrigin = _.once(function(lat, lng) {
@@ -14,10 +16,14 @@ switch(feature.properties.use_) {
   case 'Boathouse': return {color: "MidnightBlue", fillOpacity: 0.5, weight: 1};
   case 'Park- Neighborhood': return {color: "green", fillOpacity: 0.9, weight: 1};
   case 'Park- Regional/Watershed': return {color: "green", fillOpacity: 0.5, weight: 1};
-  case 'Park- Mini': return {color: "green", fillOpacity: 0.5, weight: 1};
+  case 'Park- Mini': return {color: "#006400", fillOpacity: 0.5, weight: 1, fillcolor: "green"};
   case 'Golf': return {color: "#00CED1", fillOpacity: 0.5, weight: 1};
-  case 'Historic House': return {color: "yellow", fillOpacity: 0.5, weight: 1};
-  default: return {color:"#E9967A", fillOpacity: 0.8};
+  case 'Historic House': return {color: "yellow", fillOpacity: 0.5, weight: 0.6};
+  default: return {
+    color:"MidnightBlue",
+    fillOpacity: 0.3,
+    weight: 0.8
+  };
 }
 };
 //Importing geoJson
@@ -111,10 +117,8 @@ var routing = function(dest){
       "directions_options":
           {"units":"miles"}
     };
-    console.log(routePoints);
     var markLat = finalLat;
     var markLon = finalLon;
-    console.log(finalLon);
     var point = [markLat, markLon];
     var dataArray = geoInfo.features[0].geometry.coordinates;
     // var marker = L.marker(point).addTo(map);
