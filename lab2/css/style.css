@@ -3,20 +3,65 @@ body {
     font-family: helvetica, arial, sans-serif;
     overflow: hidden;
 }
-
-.header {
+.head{
   position: absolute;
-  height: 0px;
-  width: 100%;
-  background-color: #444;
-  color: #fff;
+  left: 0px;
+  height: 110px;
+  width: 290px;
+  top: 0px;
+  bottom: 0;
+  padding: 20px;
+  overflow: hidden;
+  overflow-y: auto;
+  border: solid;
+  background-color: red;
+  border-botoom: none;
+}
+.lowbar{
   position: absolute;
-  top: 0;
+  left: 0px;
+  height: 610px;
+  width: 275px;
+  top: 250px;
+  bottom: 0;
+  padding: 20px;
+  overflow: hidden;
+  overflow-y: auto;
+  border: solid;
+  background-color: green;
+  border-top: none;
+}
+.background{
+  background-color: "green";
+}
+.smaller-image {
+  width: 220px;
+  height: 150px;
+  border-radius: 5%;
+  border-width:2px;
+}
+.smallest-image{
+  width: 70px;
+  height: 50px;
+  border-radius: 5%;
+  border-width:2px;
+}
+.bikepath-image{
+  width: 150px;
+  height: 50px;
+  border-radius: 5%;
+  border-width:2px;
+}
+.backImage{
+  background-image: url(ParksandRecreation_Bike/lab2/images/BikePath.png);
+}
+.font-size {
+  font-size: 8px;
 }
 
 .map {
   position: absolute;
-  left: 440px;
+  left: 278px;
   right: 0;
   bottom: 0;
   top: 0px;
@@ -25,14 +70,17 @@ body {
 .sidebar {
   position: absolute;
   left: 0px;
-  width: 440px;
-  top: 0px;
+  height: 140px;
+  width: 275px;
+  top: 111px;
   bottom: 0;
   padding: 20px;
   overflow: hidden;
   overflow-y: auto;
   border: solid;
   background-color: #9da3b6;
+  border-bottom: none;
+  border-top: none;
 }
 
 .custom-popup .leaflet-popup-content-wrapper {
@@ -49,14 +97,13 @@ body {
   height:15px;
   }
 
-  #media {
-    display: visible;
-  }
-  #mediaSmall{
-    display: none;
-  }
 
 @media screen and (min-width: 480px) and (max-width: 800px) {
+  p {
+      left: -40px;
+      top: -20px;
+      position: relative;
+  }
 
   .custom-popup .leaflet-popup-content-wrapper {
     background:#9da3b6;
@@ -68,27 +115,37 @@ body {
     width:10px;
     height:7px;
     }
-.sidebar {
-  width: 0%;
-  top:100px;
-  padding: 0%;
-}
-.header{
-  height: 100px;
-  width:100%;
-}
-.map{
-  left: 0%;
-  top:100px;
-}
-
-#media {
-  display: none;
-}
-#mediaSmall{
-  display: inline;
-}
-
+    .sidebar {
+      height: 66px;
+      width: 230px;
+      left: 0px;
+      padding: 0%;
+      top: 55px;
+      border-top: solid;
+    }
+    .head{
+      height:100px;
+      width: 250px;
+      z-index: -1px;
+    }
+    .smaller-image{
+      height:90%;
+      width:45%;
+    }
+    .lowbar{
+      height: 125px;
+      left: 230px;
+      width: 560px;
+      top: 0px;
+      border-bottom: none;
+      z-index: -1px;
+    }
+    .map{
+      left: 0%;
+      top:122px;
+      border-top: solid;
+      z-index: 1px;
+    }
 .left{
   width: 50px;
   height: 50px;
@@ -114,6 +171,11 @@ body {
 }
 
 @media screen and (max-width: 479px) {
+  p {
+      left: -40px;
+      top: -20px;
+      position: relative;
+  }
 
   .custom-popup .leaflet-popup-content-wrapper {
     background:#9da3b6;
@@ -126,19 +188,38 @@ body {
     width:10px;
     height:7px;
     }
-  .sidebar {
-    width: 0%;
-    top:100px;
-    padding: 0%;
-  }
-  .header{
-    height: 120px;
-    width:100%;
-  }
-  .map{
-    left: 0%;
-    top:100px
-  }
+    .sidebar {
+      height: 66px;
+      width: 250px;
+      left: 0px;
+      padding: 0%;
+      top: 55px;
+      border-top: solid;
+    }
+    .head{
+      height:100px;
+      width: 260px;
+      z-index: -1px;
+    }
+    .smaller-image{
+      height:90%;
+      width:45%;
+    }
+    .lowbar{
+      height: 162px;
+      left: 240px;
+      width: 560px;
+      top: 0px;
+      z-index: -1px;
+      border-bottom: none;
+    }
+    .map{
+      left: 0%;
+      top:122px;
+      border-top: solid;
+      z-index: 1px;
+    }
+
   .left{
     width: 50px;
     height: 50px;
@@ -146,13 +227,7 @@ body {
     border-width: thin;
     position: absolute;
   }
-  #media {
-    display: none;
-  }
 
-  #mediaSmall{
-    display: inline;
-  }
   .right{
     width: 50px;
     height: 50px;
