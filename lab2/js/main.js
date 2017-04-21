@@ -37,8 +37,9 @@ L.geoJson(pprAssets, {
 
 //Washington D.C. easter egg level
 L.geoJson(wash, {
-  // icon: birdSanct,
-}).addTo(map);
+}).bindPopup(function (layer) {
+    return (layer.feature.properties.TITLE);
+  }).addTo(map);
 
 var bufferedPoint = turf.buffer(wash, 0.5, 'miles');
 L.geoJSON(bufferedPoint).addTo(map);
@@ -83,34 +84,30 @@ var updatePosition = function(lat, lng, updated) {
 var yourLat;
 var yourLon;
 
-// $(document).ready(function() {
-//   /* This 'if' check allows us to safely ask for the user's current position */
-//   if ("geolocation" in navigator) {
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//       updatePosition(position.coords.latitude, position.coords.longitude, position.timestamp);
-//       yourLat = position.coords.latitude;
-//       yourLon = position.coords.longitude;
-//
-//     });
-//   } else {
-//     alert("Unable to access geolocation API!");
-//   }
-//
-//   var birdSanct = L.icon({
-//         iconUrl: 'js/images/birdSanct.png', //source, Tom created
-//         iconSize: [64, 64],
-//         iconAnchor: [0, 0],
-//         popupAnchor: [-1, -5],
-//   });
-//   console.log(birdSanct);
-// });
+$(document).ready(function() {
+  /* This 'if' check allows us to safely ask for the user's current position */
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      updatePosition(position.coords.latitude, position.coords.longitude, position.timestamp);
+      yourLat = position.coords.latitude;
+      yourLon = position.coords.longitude;
+
+    });
+  } else {
+    alert("Unable to access geolocation API!");
+  }
+
+  $("#blueteardrop").click(function(){
+     map.setView([38.914256255535726, -77.02351504296755]);
+     map.setZoom(12);
+  });
+});
 
 //Define global variables used for 1st API call
 var routePoints;
 var finalCoord;
 var finalLat;
 var finalLon;
-
 var routing = function(dest){
   console.log(dest);
   var direction = $.ajax('https://search.mapzen.com/v1/search?api_key=mapzen-oKSP1Yt&text=' + dest + '&boundary.circle.lat=' + yourLat + '&boundary.circle.lon=' + yourLon + '&boundary.circle.radius=100');
@@ -146,7 +143,6 @@ var routing = function(dest){
     var latlon = dataArray.reverse();
   });
 };
-
   /* Every time a key is lifted while typing in the #dest input, disable
    * the #calculate button if no text is in the input
    */
@@ -164,7 +160,6 @@ var routing = function(dest){
 //Define global variables for the 2nd API call
 var bestRoute;
 var bikePath;
-
 // Make a polygon hover
 function highlightFeature(e) {
     var layer = e.target;
@@ -184,7 +179,6 @@ function highlightFeature(e) {
 function resetHighlight(e) {
     geojson.resetStyle(e.target);
 }
-
 var geojson;
 // ... our listeners
 // geojson = L.geoJson(pprAssets, {

@@ -3,6 +3,16 @@ body {
     font-family: helvetica, arial, sans-serif;
     overflow: hidden;
 }
+.button1 {
+  width: 90px;
+  height: 70px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  border: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 10%;
+}
 .head{
   position: absolute;
   left: 0px;
