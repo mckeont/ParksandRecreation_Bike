@@ -125,12 +125,18 @@ $(document).ready(function() {
   } else {
     alert("Unable to access geolocation API!");
   }
-
+ //Button Zoom
   $("#blueteardrop").click(function(){
      map.setView([38.914256255535726, -77.02351504296755]);
      map.setZoom(15);
   });
+
+  $("#philly").click(function(){
+     map.setView([39.987614, -75.163913]);
+     map.setZoom(15);
+  });
 });
+
 
 //Define global variables used for 1st API call
 var routePoints;
