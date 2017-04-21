@@ -3,6 +3,23 @@ body {
     font-family: helvetica, arial, sans-serif;
     overflow: hidden;
 }
+.modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #0480be;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+ }
+
+ div.modalbox {
+    border-radius: 5px;
+    max-width: 600px;
+}
+
 .button1 {
   width: 90px;
   height: 70px;
