@@ -30,7 +30,7 @@ body {
 .lowbar{
   position: absolute;
   left: 0px;
-  height: 610px;
+  height: 100%;
   width: 275px;
   top: 250px;
   bottom: 0;
@@ -80,7 +80,7 @@ body {
 .sidebar {
   position: absolute;
   left: 0px;
-  height: 140px;
+  height: 100%;
   width: 275px;
   top: 111px;
   bottom: 0;
@@ -139,13 +139,14 @@ body {
       z-index: -1px;
     }
     .smaller-image{
-      height:90%;
-      width:45%;
+      position: absolute;
+      height:80px;
+      width:110px;
     }
     .lowbar{
       height: 125px;
       left: 230px;
-      width: 460px;
+      width: 100%;
       top: 0px;
       border-bottom: none;
       z-index: -1px;
@@ -212,13 +213,14 @@ body {
       z-index: -1px;
     }
     .smaller-image{
-      height:90%;
-      width:45%;
+      position: absolute;
+      height:100px;
+      width:100px;
     }
     .lowbar{
       height: 162px;
       left: 240px;
-      width: 460px;
+      width: 100%;
       top: 0px;
       z-index: -1px;
       border-bottom: none;

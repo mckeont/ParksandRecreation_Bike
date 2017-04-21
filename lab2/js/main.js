@@ -10,14 +10,14 @@ var goToOrigin = _.once(function(lat, lng) {
 var myStyle = function(feature) {
   // return {fillColor: 'red'};
 switch(feature.properties.use_) {
-  case 'Recreation Site': return {color: "orange", fillOpacity: 0.9, weight: 1};
-  case 'Athletic': return {color: "#DC143C", fillOpacity: 0.9, weight: 1};
+  case 'Recreation Site': return {color: "orange", fillOpacity: 0.4, weight: 1};
+  case 'Athletic': return {color: "#DC143C", fillOpacity: 0.3, weight: 1};
   case 'Recreation BLDG': return {color: "orange", fillOpacity: 0.5, weight: 1};
   case 'Boathouse': return {color: "MidnightBlue", fillOpacity: 0.5, weight: 1};
   case 'Park- Neighborhood': return {color: "green", fillOpacity: 0.3, weight: 0.6};
   case 'Park- Regional/Watershed': return {color: "green", fillOpacity: 0.2, weight: 0.6};
   case 'Park- Mini': return {color: "#006400", fillOpacity: 0.5, weight: 1, fillcolor: "green"};
-  case 'Golf': return {color: "#00CED1", fillOpacity: 0.5, weight: 1};
+  case 'Golf': return {color: "#556B2F", fillOpacity: 0.2, weight: 0.9};
   case 'Historic House': return {color: "yellow", fillOpacity: 0.1, weight: 0.6};
   default: return {
     color:"MidnightBlue",
@@ -38,7 +38,7 @@ L.geoJson(pprAssets, {
 //Washington D.C. easter egg level
 L.geoJson(wash, {
 }).bindPopup(function (layer) {
-    return (layer.feature.properties.TITLE);
+    return (layer.feature.properties.DISPLAY);
   }).addTo(map);
 
 var bufferedPoint = turf.buffer(wash, 100, 'feet');
@@ -99,7 +99,7 @@ $(document).ready(function() {
 
   $("#blueteardrop").click(function(){
      map.setView([38.914256255535726, -77.02351504296755]);
-     map.setZoom(12);
+     map.setZoom(15);
   });
 });
 
