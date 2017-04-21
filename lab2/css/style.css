@@ -135,7 +135,7 @@ body {
     .lowbar{
       height: 125px;
       left: 230px;
-      width: 560px;
+      width: 460px;
       top: 0px;
       border-bottom: none;
       z-index: -1px;
@@ -208,7 +208,7 @@ body {
     .lowbar{
       height: 162px;
       left: 240px;
-      width: 560px;
+      width: 460px;
       top: 0px;
       z-index: -1px;
       border-bottom: none;

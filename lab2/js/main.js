@@ -14,11 +14,11 @@ switch(feature.properties.use_) {
   case 'Athletic': return {color: "#DC143C", fillOpacity: 0.9, weight: 1};
   case 'Recreation BLDG': return {color: "orange", fillOpacity: 0.5, weight: 1};
   case 'Boathouse': return {color: "MidnightBlue", fillOpacity: 0.5, weight: 1};
-  case 'Park- Neighborhood': return {color: "green", fillOpacity: 0.9, weight: 1};
-  case 'Park- Regional/Watershed': return {color: "green", fillOpacity: 0.5, weight: 1};
+  case 'Park- Neighborhood': return {color: "green", fillOpacity: 0.3, weight: 0.6};
+  case 'Park- Regional/Watershed': return {color: "green", fillOpacity: 0.2, weight: 0.6};
   case 'Park- Mini': return {color: "#006400", fillOpacity: 0.5, weight: 1, fillcolor: "green"};
   case 'Golf': return {color: "#00CED1", fillOpacity: 0.5, weight: 1};
-  case 'Historic House': return {color: "yellow", fillOpacity: 0.5, weight: 0.6};
+  case 'Historic House': return {color: "yellow", fillOpacity: 0.1, weight: 0.6};
   default: return {
     color:"MidnightBlue",
     fillOpacity: 0.3,
@@ -35,6 +35,13 @@ L.geoJson(pprAssets, {
   style: myStyle,
 }).addTo(map);
 
+//Washington D.C. easter egg level
+L.geoJson(wash, {
+  // icon: birdSanct,
+}).addTo(map);
+
+var bufferedPoint = turf.buffer(wash, 0.5, 'miles');
+L.geoJSON(bufferedPoint).addTo(map);
 // Drawing tools
 var drawControl = new L.Control.Draw({
   draw: {
@@ -76,19 +83,27 @@ var updatePosition = function(lat, lng, updated) {
 var yourLat;
 var yourLon;
 
-$(document).ready(function() {
-  /* This 'if' check allows us to safely ask for the user's current position */
-  if ("geolocation" in navigator) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      updatePosition(position.coords.latitude, position.coords.longitude, position.timestamp);
-      yourLat = position.coords.latitude;
-      yourLon = position.coords.longitude;
-
-    });
-  } else {
-    alert("Unable to access geolocation API!");
-  }
-});
+// $(document).ready(function() {
+//   /* This 'if' check allows us to safely ask for the user's current position */
+//   if ("geolocation" in navigator) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       updatePosition(position.coords.latitude, position.coords.longitude, position.timestamp);
+//       yourLat = position.coords.latitude;
+//       yourLon = position.coords.longitude;
+//
+//     });
+//   } else {
+//     alert("Unable to access geolocation API!");
+//   }
+//
+//   var birdSanct = L.icon({
+//         iconUrl: 'js/images/birdSanct.png', //source, Tom created
+//         iconSize: [64, 64],
+//         iconAnchor: [0, 0],
+//         popupAnchor: [-1, -5],
+//   });
+//   console.log(birdSanct);
+// });
 
 //Define global variables used for 1st API call
 var routePoints;
@@ -198,6 +213,8 @@ geojson = L.geoJson(pprAssets, {
 }).bindPopup(function (layer) {
     return ("<b>" + layer.feature.properties.label + "</b> <br>" + layer.feature.properties.description  +"<br> " + "<br>"  + "<b>ADDRESS:</b>" + " " + layer.feature.properties.address + '<br>' + '<b>USE:</b>' + " " + layer.feature.properties.use_);
   }).addTo(map);
+
+
 
 console.log(routePoints);
 $(function(){
