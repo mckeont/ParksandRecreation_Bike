@@ -41,7 +41,7 @@ L.geoJson(wash, {
     return (layer.feature.properties.TITLE);
   }).addTo(map);
 
-var bufferedPoint = turf.buffer(wash, 0.5, 'miles');
+var bufferedPoint = turf.buffer(wash, 100, 'feet');
 L.geoJSON(bufferedPoint).addTo(map);
 // Drawing tools
 var drawControl = new L.Control.Draw({
