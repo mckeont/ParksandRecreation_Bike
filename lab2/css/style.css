@@ -55,8 +55,9 @@ body {
   overflow: hidden;
   overflow-y: auto;
   border: solid;
-  background-color: green;
-  border-top: none;
+  background-color: #F5F5DC;
+  border-top: solid;
+  border-bottom: solid;
 }
 .background{
   background-color: "green";
