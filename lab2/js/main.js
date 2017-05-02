@@ -112,6 +112,7 @@ var updatePosition = function(lat, lng, updated) {
 //Define global variables for current Lat and Lon
 var yourLat;
 var yourLon;
+// var origin = new L.LatLng(yourLat, yourLon);
 
 $(document).ready(function() {
   /* This 'if' check allows us to safely ask for the user's current position */
@@ -268,6 +269,10 @@ $(function(){
             }).addTo(map);
           });
         }
+        var southWest = new L.LatLng(yourLat, yourLon),
+            northEast = new L.LatLng(finalLat, finalLon),
+            bounds = new L.LatLngBounds(southWest, northEast);
+        map.fitBounds(bounds);
 
       }else{
         stringRoute = "https://matrix.mapzen.com/optimized_route?json=" + JSON.stringify(routePoints) + "&api_key=mapzen-oKSP1Yt";
@@ -280,6 +285,10 @@ $(function(){
           }).addTo(map);
         });
       }
+      var southWes = new L.LatLng(yourLat, yourLon),
+          northEas = new L.LatLng(finalLat, finalLon),
+          boundsType = new L.LatLngBounds(southWes, northEas);
+      map.fitBounds(boundsType);
 
 
     });
