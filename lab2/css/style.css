@@ -167,7 +167,7 @@ body {
       left: 230px;
       width: 100%;
       top: 0px;
-      border-bottom: none;
+      border-bottom: solid;
       z-index: -1px;
     }
     .map{
@@ -242,7 +242,7 @@ body {
       width: 100%;
       top: 0px;
       z-index: -1px;
-      border-bottom: none;
+      border-bottom: solid;
     }
     .map{
       left: 0%;
