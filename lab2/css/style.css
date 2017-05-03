@@ -42,7 +42,8 @@ body {
   overflow-y: auto;
   border: solid;
   background-color: #ff7455;
-  border-botoom: none;
+  border-bottom: solid;
+  border-left: solid;
 }
 .lowbar{
   position: absolute;
@@ -232,8 +233,8 @@ body {
     }
     .smaller-image{
       position: absolute;
-      height:80px;
-      width:100px;
+      height:60px;
+      width:110px;
     }
     .lowbar{
       height: 162px;
