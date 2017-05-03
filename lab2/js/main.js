@@ -147,7 +147,6 @@ var finalLon;
 var routing = function(dest){
   console.log(dest);
   var direction = $.ajax('https://search.mapzen.com/v1/search?api_key=mapzen-oKSP1Yt&text=' + dest + '&boundary.circle.lat=' + yourLat + '&boundary.circle.lon=' + yourLon + '&boundary.circle.radius=100');
-  //retrieve the lat.long coordinates from the geoJSON
   direction.done(function(geoInfo)
   {
     finalCoord = geoInfo.features[0].geometry.coordinates;
