@@ -1,12 +1,12 @@
 
-
+//search bar keyUP
 var keyUp = false;
 //Fly to your location
 var goToOrigin = _.once(function(lat, lng) {
   map.flyTo([lat, lng], 14);
 });
 
-// Set colors for each polygon
+// Set colors for each  Parks and Recreation polygon
 var myStyle = function(feature) {
   // return {fillColor: 'red'};
 switch(feature.properties.use_) {
@@ -26,7 +26,7 @@ switch(feature.properties.use_) {
   };
 }
 };
-
+//Circuit trail system layered over Philadelphia
 var trailStyle = function(feature){
   switch(feature.properties.TYPE){
     case 'Major': return {color: "darkgreen", fillOpacity: 0.5, weight: 2};
@@ -52,6 +52,7 @@ L.geoJson(cT, {
     return (layer.feature.properties.NAME);
   }).addTo(map);
 
+//Search bar properties for Washington DC
 var dcpopulateSearch = function(e) {
   console.log(e);
   $('#dest').val(e.target.feature.properties.ADDRESS  + " " + "Washington" + " " + "DC");
@@ -69,7 +70,7 @@ L.geoJson(wash, {
 }).bindPopup(function (layer) {
     return (layer.feature.properties.DISPLAY);
   }).addTo(map);
-
+//Buffer radius around Washington DC Art installation points
 var bufferedPoint = turf.buffer(wash, 100, 'feet');
 L.geoJSON(bufferedPoint).addTo(map);
 // Drawing tools
